@@ -1,0 +1,124 @@
+{
+	"[python]": {
+		"editor.rulers": [
+			79
+		],
+		"editor.insertSpaces": true,
+		"editor.tabSize": 4
+	},
+	"[javascript]": {
+		"editor.rulers": [
+			79
+		],
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+	"[typescript]": {
+		"editor.rulers": [
+			79
+		],
+		"editor.insertSpaces": false,
+		"editor.tabSize": 2
+	},
+	"[javascriptreact]": {
+		"editor.rulers": [
+			79
+		],
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+	"[typescriptreact]": {
+		"editor.rulers": [
+			79
+		],
+		"editor.insertSpaces": false,
+		"editor.tabSize": 2
+	},
+	"[c]": {
+		"editor.rulers": [
+			80
+		],
+		"editor.insertSpaces": false,
+		"editor.wordBasedSuggestions": "off",
+		"editor.suggest.insertMode": "replace",
+		"editor.semanticHighlighting.enabled": true,
+		"files.trimTrailingWhitespace": true
+	},
+	"[html]": {
+		"editor.rulers": [
+			80
+		],
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.formatOnSave": true
+	},
+	"[scss]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+		"editor.formatOnSave": true,
+	},
+	"[csharp]": {
+		"editor.maxTokenizationLineLength": 2000,
+		"editor.inlineSuggest.suppressSuggestions": false
+	},
+	// Format général
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "boundary",
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": true,
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"files.autoSave": "afterDelay",
+	// Explorer & Git
+	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": false,
+	"git.openRepositoryInParentFolders": "always",
+	"git.enableSmartCommit": true,
+	"git.autofetch": true,
+	"git.confirmSync": false,
+	// Terminal
+	"terminal.integrated.sendKeybindingsToShell": true,
+	"terminal.integrated.enableMultiLinePasteWarning": "never",
+	// WSL & Remote
+	"remote.WSL.downloadInBackground": false,
+	"remote.autoForwardPortsSource": "hybrid",
+	// CMake & Dart
+	"cmake.configureOnOpen": true,
+	"cmake.showOptionsMovedNotification": false,
+	"dart.showTodos": true,
+	// Live Server
+	"liveServer.settings.donotVerifyTags": true,
+	"liveServer.settings.donotShowInfoMsg": true,
+	// Icon theme
+	"workbench.iconTheme": "vscode-icons-mac",
+	"workbench.startupEditor": "none",
+	"workbench.colorCustomizations": {
+		"editorWhitespace.foreground": "#cecdcd69"
+	},
+	// Emmet pour JSX/TSX
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact",
+		"typescript": "typescriptreact"
+	},
+	// ESLint integration
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact"
+	],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	// Facultatif : exiger un fichier .prettierrc pour prettier
+	"prettier.requireConfig": true,
+	"github.copilot.enable": {
+		"*": false,
+		"plaintext": false,
+		"markdown": false,
+		"scminput": false,
+		"typescript": false,
+		"html": false
+	},
+	"diffEditor.ignoreTrimWhitespace": false
+}
