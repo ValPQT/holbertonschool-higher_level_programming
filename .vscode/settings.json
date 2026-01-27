@@ -119,7 +119,7 @@
 		"scminput": false,
 		"typescript": false,
 		"html": false,
-		"python": true
+		"python": false
 	},
 	"diffEditor.ignoreTrimWhitespace": false
 }
