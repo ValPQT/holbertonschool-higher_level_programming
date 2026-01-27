@@ -118,7 +118,8 @@
 		"markdown": false,
 		"scminput": false,
 		"typescript": false,
-		"html": false
+		"html": false,
+		"python": true
 	},
 	"diffEditor.ignoreTrimWhitespace": false
 }
