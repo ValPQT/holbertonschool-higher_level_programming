@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Defines a class Square with size validation and area calculation."""
+"""Write a class Square that defines a square by: (based on 4-square.py)"""
+
 
 class Square:
+    """Define the parameters of the class square"""
     def __init__(self, size=0):
         self.size = size
 
@@ -22,12 +24,12 @@ class Square:
     def area(self):
         """Return the area of the square."""
         return self.__size * self.__size
-    def my_print(self):
-        """Print the square with the character #."""
-        if self.__size == 0:
-            print()
-            return
-        for _ in range(self.__size):
-            print("#" * self.__size)
 
+    def my_print(self):
+        """Print the square with #"""
+        if self.size == 0:
+            print("")
+        else:
+            for _ in range(self.size):
+                print("#" * self.size)
 
