@@ -4,6 +4,7 @@
 
 class Square:
     """Define the parameters of the class square"""
+
     def __init__(self, size=0):
         self.size = size
 
@@ -32,4 +33,3 @@ class Square:
         else:
             for _ in range(self.size):
                 print("#" * self.size)
-
