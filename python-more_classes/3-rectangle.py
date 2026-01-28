@@ -3,20 +3,20 @@
 
 
 class Rectangle:
+    """Parameters of the rectangle"""
     def __init__(self, width=0, height=0):
-        """Parameters of the rectangle"""
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
         """Getter: return the width of the rectangle"""
-        return self.width
+        return self.__width
 
     @property
     def height(self):
         """Getter: return the height of the rectangle"""
-        return self.height
+        return self.__height
 
     @width.setter
     def width(self, value):
@@ -43,4 +43,4 @@ class Rectangle:
     def perimeter(self):
         """ Return the perimeter of the rectangle"""
         return (2 * self.__height) + (2 * self.__width)
-        
+
