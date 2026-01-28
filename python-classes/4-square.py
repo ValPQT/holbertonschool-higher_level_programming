@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Defines a class Square with size validation and area calculation."""
+"""Defines a class Square with size validation and area calculation"""
+
 
 class Square:
+    """Define the parameters of the square"""
     def __init__(self, size=0):
         self.size = size
 
@@ -12,7 +14,7 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """Setter: check if the size is an int and if size >= 0."""
+        """Setter: check if the size is an int and if size >= 0"""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -22,4 +24,3 @@ class Square:
     def area(self):
         """Return the area of the square."""
         return self.__size * self.__size
-
