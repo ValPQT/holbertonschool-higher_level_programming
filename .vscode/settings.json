@@ -113,13 +113,13 @@
 	// Facultatif : exiger un fichier .prettierrc pour prettier
 	"prettier.requireConfig": true,
 	"github.copilot.enable": {
-		"*": false,
+		"*": true,
 		"plaintext": false,
 		"markdown": false,
 		"scminput": false,
 		"typescript": false,
 		"html": false,
-		"python": false
+		"python": true
 	},
 	"diffEditor.ignoreTrimWhitespace": false
 }
