@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 class Animal(ABC):
 
 
-"""Abstract base class representing an Animal."""
+    """Abstract base class representing an Animal."""
 
 
 @abstractmethod
