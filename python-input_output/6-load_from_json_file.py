@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import json
 
+
 def load_from_json_file(filename):
-    with open(filename, mode= "w+") as filename:
-        json.load(my_obj, filename)
+    """Creates a Python object from a JSON file"""
+    with open(filename, "r", encoding="utf-8") as f:
+        return json.load(f)
