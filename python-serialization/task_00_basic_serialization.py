@@ -1,43 +1,51 @@
 #!/usr/bin/python3
-"""Module containing basic serialization"""
+"""
+Ce module fournit des fonctions permettant de sérialiser des données
+Python au format JSON et de les sauvegarder dans un fichier, ainsi que
+de charger et désérialiser ces données depuis un fichier JSON.
+"""
+
 import json
 
 
 def serialize_and_save_to_file(data, filename):
     """
-    Serialize a Python object and save it to a file using pickle.
-
-    This function converts the given Python data structure into a
-    binary format using the pickle module and writes it to a file.
+    Sérialise un objet Python en format JSON et l'enregistre
+    dans un fichier spécifié.
 
     Args:
-        data: The Python object to serialize (list, dict, custom object, etc.).
-        filename (str): The name of the file where the serialized
-                        data will be stored.
+        data: L'objet Python à sérialiser (liste, dictionnaire, etc.).
+        filename (str): Le nom du fichier dans lequel les données
+        seront enregistrées.
 
-    Note:
-        The file is opened in binary write mode ('w').
+    Cette fonction convertit les données Python en JSON puis les écrit
+    dans le fichier donné. Si le fichier existe déjà, son contenu sera
+    écrasé.
     """
-    with open("filename", mode="w",encoding="utf-8") as f:
+    # Ouvre le fichier en mode écriture ("w")
+    # encoding="utf-8" garantit la compatibilité avec les caractères spéciaux
+    with open(filename, "w", encoding="utf-8") as f:
+        # Convertit l'objet Python en format JSON
+        # et l'écrit directement dans le fichier
         json.dump(data, f)
 
 
 def load_and_deserialize(filename):
     """
-    Load and deserialize a Python object from a pickle file.
-
-    This function reads binary data from a file and reconstructs
-    the original Python object using the pickle module.
+    Charge des données depuis un fichier JSON et les convertit
+    en objet Python.
 
     Args:
-        filename (str): The name of the file containing the
-                        serialized data.
+        filename (str): Le nom du fichier contenant les données JSON.
 
     Returns:
-        The deserialized Python object.
+        L'objet Python obtenu après désérialisation du contenu JSON.
 
-    Note:
-        The file is opened in binary read mode ('r').
+    Cette fonction ouvre le fichier en mode lecture, lit le contenu JSON
+    et le transforme en structure de données Python équivalente.
     """
-    with open("filename", mode="r", encoding="utf-8") as f:
+    # Ouvre le fichier en mode lecture ("r")
+    with open(filename, "r", encoding="utf-8") as f:
+        # json.load() lit le contenu JSON du fichier
+        # et le convertit en objet Python (liste, dictionnaire, etc.)
         return json.load(f)
