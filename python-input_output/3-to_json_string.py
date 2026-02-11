@@ -5,7 +5,9 @@ to the end of a UTF-8 encoded text file.
 """
 import json
 
-"""
+
+def to_json_string(my_obj):
+    """
        Returns the JSON representation of an object.
 
        Args:
@@ -13,8 +15,5 @@ import json
 
        Return:
            A string containing the JSON representation of my_obj.
-       """
-
-
-def to_json_string(my_obj):
+    """
     return json.dumps(my_obj)
