@@ -1,6 +1,13 @@
 #!/usr/bin/python3
-import json
 """
+This module provides a function that appends a string
+to the end of a UTF-8 encoded text file.
+"""
+import json
+
+
+def from_json_string(my_str):
+    """
     Returns a Python object represented by a JSON string.
 
     Args:
@@ -9,7 +16,4 @@ import json
     Return:
         The Python object represented by the JSON string.
     """
-
-
-def from_json_string(my_str):
     return json.loads(my_str)
