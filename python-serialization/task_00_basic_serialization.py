@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module containing basic serialization"""
-import pickle
+import json
 
 
 def serialize_and_save_to_file(data, filename):
@@ -16,10 +16,10 @@ def serialize_and_save_to_file(data, filename):
                         data will be stored.
 
     Note:
-        The file is opened in binary write mode ('wb').
+        The file is opened in binary write mode ('w').
     """
-    with open("filename.pkl", mode="wb") as f:
-        pickle.dump(data, f)
+    with open("filename", mode="w",encoding="utf-8") as f:
+        json.dump(data, f)
 
 
 def load_and_deserialize(filename):
@@ -37,7 +37,7 @@ def load_and_deserialize(filename):
         The deserialized Python object.
 
     Note:
-        The file is opened in binary read mode ('rb').
+        The file is opened in binary read mode ('r').
     """
-    with open("filename.pkl", mode="rb") as f:
-        return pickle.load(f)
+    with open("filename", mode="r", encoding="utf-8") as f:
+        return json.load(f)
