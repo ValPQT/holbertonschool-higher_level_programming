@@ -1,37 +1,50 @@
-#!/usr/bin/python3
 """
-This module defines a Student class used to represent a student
-with basic personal information.
+Ce module définit une classe Student qui permet de représenter
+un étudiant avec des informations personnelles de base.
 """
 
 
 class Student:
     """
-    Represents a student with a first name, last name and age.
+    Cette classe représente un étudiant avec un prénom,
+    un nom et un âge.
     """
 
     def __init__(self, first_name, last_name, age):
         """
-        Initializes a new Student instance.
+        Initialise une nouvelle instance de Student.
 
         Args:
-            first_name (str): The first name of the student
-            last_name (str): The last name of the student
-            age (int): The age of the student
+            first_name (str): le prénom de l'étudiant
+            last_name (str): le nom de famille de l'étudiant
+            age (int): l'âge de l'étudiant
         """
+
         self.first_name = first_name
+
         self.last_name = last_name
+
         self.age = age
 
     def to_json(self, attrs=None):
         """
-        Returns a dictionary representation of the Student instance.
+        Retourne un dictionnaire représentant l'objet Student.
+
+        Si attrs est une liste de chaînes de caractères,
+        seuls les attributs présents dans cette liste
+        seront inclus dans le dictionnaire retourné.
         """
+
         if isinstance(attrs, list):
+
             result = {}
 
             for attr in attrs:
+
                 if hasattr(self, attr):
-                    result[attr] = getattr(self.attr)
+
+                    result[attr] = getattr(self, attr)
+
             return result
-            return self.__dict__
+
+        return self.__dict__
