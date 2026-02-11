@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 """
+This module provides a function that appends a string
+to the end of a UTF-8 encoded text file.
+"""
+
+
+def append_write(filename="", text=""):
+    """
     Appends a string at the end of a text file (UTF-8)
     and returns the number of characters added.
 
@@ -10,9 +17,5 @@
     Returns:
         int: The number of characters appended.
     """
-
-
-def append_write(filename="", text=""):
     with open(filename, mode="a+", encoding="utf-8") as f:
-        f.write(text)
-        return len(text)
+        return f.write(text)
