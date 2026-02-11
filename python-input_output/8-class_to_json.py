@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This module provides a function that appends a string
+to the end of a UTF-8 encoded text file.
+"""
+
 
 def class_to_json(obj):
     """
