@@ -48,7 +48,7 @@ def fetch_and_save_posts():
             })
 
         # Added newline='' to prevent blank lines between rows in some OS
-        with open('posts.csv', 'w', encoding='utf-8', newline='') as f:
+        with open('posts.csv', 'w', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=['id', 'title', 'body'])
             writer.writeheader()
             writer.writerows(cleaned_posts)
