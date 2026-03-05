@@ -1,14 +1,28 @@
-🐍 Guide de Connexion MySQL avec Python & ORM
-Ce guide explique comment connecter Python à une base de données MySQL, manipuler des données avec SQL brut, et utiliser un ORM (Object Relational Mapping).
+# 🐍 Python & MySQL Guide
 
-1. Connexion à une base de données MySQL
-Pour connecter Python à MySQL, on utilise généralement des bibliothèques comme mysql-connector-python ou PyMySQL.
+This guide explains:
 
-🛠️ Installation du connecteur
-Bash
+- How to connect to a MySQL database from a Python script
+- How to SELECT rows in a MySQL table from a Python script
+- How to INSERT rows in a MySQL table from a Python script
+- What ORM means
+- How to map a Python class to a MySQL table
+
+---
+
+# 1. How to connect to a MySQL database from a Python script
+
+To connect Python to a MySQL database, you can use the library **mysql-connector-python**.
+
+## Installation
+
+```bash
 pip install mysql-connector-python
-💻 Exemple de connexion
-Python
+```
+
+## Python connection example
+
+```python
 import mysql.connector
 
 connection = mysql.connector.connect(
@@ -19,22 +33,28 @@ connection = mysql.connector.connect(
 )
 
 cursor = connection.cursor()
+
 print("Connected to MySQL database")
-📝 Explications
-host : Emplacement du serveur de base de données.
+```
 
-user : Nom d'utilisateur MySQL.
+### Explanation
 
-password : Mot de passe MySQL.
+- **host**: The database server location.
+- **user**: Your MySQL username.
+- **password**: Your MySQL password.
+- **database**: The database you want to use.
 
-database : Nom de la base de données.
+---
 
-2. Lire des données (SELECT)
-Vous pouvez récupérer des données en utilisant la commande SQL SELECT.
+# 2. How to SELECT rows in a MySQL table from a Python script
 
-💻 Exemple
-Python
+You can retrieve data using the SQL `SELECT` statement.
+
+## Example
+
+```python
 query = "SELECT * FROM users"
+
 cursor.execute(query)
 
 results = cursor.fetchall()
@@ -44,56 +64,87 @@ for row in results:
 
 cursor.close()
 connection.close()
-📝 Explications
-cursor.execute(query) : Exécute la requête SQL.
+```
 
-fetchall() : Récupère toutes les lignes retournées par la requête.
+### Explanation
 
-Chaque ligne est retournée sous forme de tuple.
+- `cursor.execute(query)` runs the SQL query.
+- `fetchall()` retrieves all rows returned by the query.
+- Each row is returned as a **tuple**.
 
-3. Insérer des données (INSERT)
-Pour ajouter des données dans une table, utilisez la commande SQL INSERT.
+---
 
-💻 Exemple
-Python
+# 3. How to INSERT rows in a MySQL table from a Python script
+
+To insert data into a table, use the SQL `INSERT` statement.
+
+## Example
+
+```python
 query = "INSERT INTO users (name, email) VALUES (%s, %s)"
 values = ("Alice", "alice@email.com")
 
 cursor.execute(query, values)
-connection.commit() # Très important !
+
+connection.commit()
 
 print("Row inserted successfully")
-[!IMPORTANT]
-connection.commit() est obligatoire pour enregistrer les modifications dans la base de données.
+```
 
-4. Qu'est-ce qu'un ORM ?
-ORM signifie Object Relational Mapping.
+### Important
 
-C'est une technique de programmation qui permet aux développeurs d'interagir avec une base de données en utilisant des objets au lieu de requêtes SQL brutes.
+`connection.commit()` is required to save the changes in the database.
 
-Sans ORM (SQL) : SELECT * FROM users;
+---
 
-Avec ORM (Python) : User.query.all()
+# 4. What ORM means
 
-✅ Avantages de l'ORM
-Moins de code SQL à écrire.
+**ORM** stands for **Object Relational Mapping**.
 
-Code plus propre et plus lisible.
+It is a programming technique that allows developers to interact with a database using **objects instead of writing SQL queries directly**.
 
-Gestion simplifiée de la base de données.
+## Example
 
-Meilleure abstraction entre l'application et la base.
+### Without ORM
 
-ORMs Python populaires : SQLAlchemy, Django ORM, Peewee.
+```sql
+SELECT * FROM users;
+```
 
-5. Mapper une Classe Python à une table MySQL
-Avec un ORM comme SQLAlchemy, vous pouvez lier directement vos classes Python à vos tables.
+### With ORM
 
-🛠️ Installation
-Bash
+```python
+User.query.all()
+```
+
+### Advantages of ORM
+
+- Less SQL code to write
+- Cleaner and more readable code
+- Easier database management
+- Better abstraction between application and database
+
+Popular Python ORMs include:
+
+- SQLAlchemy
+- Django ORM
+- Peewee
+
+---
+
+# 5. How to map a Python Class to a MySQL table
+
+Using an ORM like **SQLAlchemy**, you can map a Python class to a database table.
+
+## Installation
+
+```bash
 pip install sqlalchemy pymysql
-💻 Exemple de Mapping
-Python
+```
+
+## Example
+
+```python
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.orm import declarative_base
 
@@ -106,18 +157,15 @@ class User(Base):
     name = Column(String(100))
     email = Column(String(100))
 
-# Connexion
 engine = create_engine("mysql+pymysql://username:password@localhost/database")
 
-# Création de la table
 Base.metadata.create_all(engine)
-📝 Explications
-User : La classe Python.
+```
 
-users : Le nom de la table dans MySQL.
+### Explanation
 
-Column : Définit les colonnes de la table.
-
-create_engine() : Connecte SQLAlchemy à MySQL.
-
-create_all() : Crée la table automatiquement si elle n'existe pas.
+- **User**: Python class representing the table.
+- **users**: Name of the MySQL table.
+- **Column**: Defines table columns.
+- **create_engine()**: Connects SQLAlchemy to MySQL.
+- **create_all()**: Creates the table if it does not exist.
