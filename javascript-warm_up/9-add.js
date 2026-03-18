@@ -6,8 +6,11 @@
     You must use console.log(...) to print all output
     You are not allowed to use var
 */
+const a = parseInt(process.argv[2]);
+const b = parseInt(process.argv[3]);
+
 function add(a, b) {
-    return a + b;
+  return a + b;
 }
 
-console.log(add(parseInt(process.argv[2]), parseInt(process.argv[3])));
+console.log(add(a, b));
